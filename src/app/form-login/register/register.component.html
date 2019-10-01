@@ -1,0 +1,87 @@
+<!-- Material form register -->
+<div class="card">
+
+  <h5 class="card-header white-text text-center py-4 bg-light">
+    <strong>Sign up</strong>
+  </h5>
+
+  <!--Card content-->
+  <div class="card-body px-lg-5 pt-0">
+
+    <!-- Form -->
+    <form class="text-center" style="color: #757575" (ngSubmit)="createUser(registerForm)" #registerForm="ngForm">
+
+      <div class="form-row" style="margin-top: 10px">
+        <div class="col">
+          <!-- First name -->
+          <div class="md-form">
+            <input type="text" id="materialRegisterFormFirstName" class="form-control" ngModel name="firsName">
+            <label for="materialRegisterFormFirstName">First name</label>
+          </div>
+        </div>
+        <div class="col">
+          <!-- Last name -->
+          <div class="md-form">
+            <input type="text" id="materialRegisterFormLastName" class="form-control" ngModel name="lastName">
+            <label for="materialRegisterFormLastName">Last name</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- E-mail -->
+      <div class="md-form mt-0">
+        <input type="email" id="materialRegisterFormEmail" class="form-control" ngModel name="email">
+        <label for="materialRegisterFormEmail">E-mail</label>
+      </div>
+
+      <!-- Password -->
+      <div class="md-form">
+        <input type="password" id="materialRegisterFormPassword" class="form-control" ngModel name="password">
+        <label for="materialRegisterFormPassword">Password</label>
+      </div>
+
+      <!-- Phone number -->
+      <div class="md-form">
+        <input type="password" id="materialRegisterFormPhone" class="form-control" ngModel name="phoneNumber">
+        <label for="materialRegisterFormPhone">Phone number</label>
+      </div>
+
+<!--      &lt;!&ndash; Newsletter &ndash;&gt;-->
+<!--      <div class="form-check">-->
+<!--        <input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">-->
+<!--        <label class="form-check-label" for="materialRegisterFormNewsletter">Subscribe to our newsletter</label>-->
+<!--      </div>-->
+
+      <!-- Sign up button -->
+      <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0">Sign up</button>
+
+      <!-- Social register -->
+      <p>or sign up with:</p>
+
+      <a type="button" class="btn-floating btn-fb btn-sm">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a type="button" class="btn-floating btn-tw btn-sm">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a type="button" class="btn-floating btn-li btn-sm">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a type="button" class="btn-floating btn-git btn-sm">
+        <i class="fab fa-github"></i>
+      </a>
+
+      <hr>
+
+      <!-- Terms of service -->
+      <p>By clicking
+        <strong>Sign up</strong> you agree to our
+        <a href="" target="_blank">terms of service</a>
+
+    </form>
+    <!-- Form -->
+    <div *ngIf="message" style="color: red">{{message}}</div>
+  </div>
+
+</div>
+<!-- Material form register -->

@@ -1,0 +1,57 @@
+<div class="card">
+
+  <h5 class="card-header white-text text-center py-4 bg-light">
+    <strong>Sign in</strong>
+  </h5>
+
+  <!--Card content-->
+  <div class="card-body px-lg-5 pt-0">
+
+    <!-- Form -->
+    <form class="text-center" style="color: #757575" (ngSubmit)="loginUser(loginForm)" #loginForm="ngForm">
+      <hr>
+      <p> with:</p>
+      <a type="button" class="btn-floating btn-fb btn-sm">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a type="button" class="btn-floating btn-tw btn-sm">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a type="button" class="btn-floating btn-li btn-sm">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a type="button" class="btn-floating btn-git btn-sm">
+        <i class="fab fa-github"></i>
+      </a>
+
+
+      <p>or</p>
+
+
+      <!-- E-mail -->
+      <div class="md-form mt-0">
+        <input type="email" id="materialRegisterFormEmail" class="form-control" ngModel name="email">
+        <label for="materialRegisterFormEmail">E-mail</label>
+      </div>
+
+      <!-- Password -->
+      <div class="md-form">
+        <input type="password" id="materialRegisterFormPassword" class="form-control" ngModel name="password">
+        <label for="materialRegisterFormPassword">Password</label>
+      </div>
+      <hr>
+
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">
+        <label class="form-check-label" for="materialRegisterFormNewsletter">Remember me</label>
+      </div>
+
+      <!-- Sign up button -->
+      <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0">Login</button>
+      Forgot <strong>Email or password</strong>
+      <p>Create an account?<a routerLink="/user/register" target="_blank">Sign up</a></p>
+    </form>
+    <!-- Form -->
+    <div *ngIf="message" style="color: red">{{message}}</div>
+  </div>
+</div>
