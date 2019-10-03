@@ -9,7 +9,7 @@
   <div class="card-body px-lg-5 pt-0">
 
     <!-- Form -->
-    <form class="text-center" style="color: #757575" (ngSubmit)="createUser(registerForm)" #registerForm="ngForm">
+    <form class="text-center" style="color: #757575" (ngSubmit)="createUser(registerForm)" #registerForm="ngForm" >
 
       <div class="form-row" style="margin-top: 10px">
         <div class="col">
@@ -42,7 +42,7 @@
 
       <!-- Phone number -->
       <div class="md-form">
-        <input type="password" id="materialRegisterFormPhone" class="form-control" ngModel name="phoneNumber">
+        <input type="number" id="materialRegisterFormPhone" class="form-control" ngModel name="phoneNumber">
         <label for="materialRegisterFormPhone">Phone number</label>
       </div>
 

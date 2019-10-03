@@ -12,8 +12,8 @@ import {AuthenticationService} from '../form-login/authentication.service';
 })
 export class HomeComponent implements OnInit {
 
-  // loading = false;
-  // users: IUser[];
+  loading = false;
+  users: IUser[];
   currentUser: IUser;
 
   constructor(private userService: UserService,
@@ -22,11 +22,11 @@ export class HomeComponent implements OnInit {
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x)} ;
 
   ngOnInit() {
-    // this.loading = true;
-    // this.userService.getList().pipe(first()).subscribe(users => {
-    //   this.loading = false;
-    //   this.users = users;
-    // });
+    this.loading = true;
+    this.userService.getList().pipe(first()).subscribe(users => {
+      this.loading = false;
+      this.users = users;
+    });
   }
 
 

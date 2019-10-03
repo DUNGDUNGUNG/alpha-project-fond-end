@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {IUser} from './user';
@@ -9,12 +8,10 @@ import {IUser} from './user';
 })
 export class UserService {
 
-  apiUrl = environment.apiUrl;
 
   constructor(private httpClient: HttpClient) { }
 
   getList(): Observable<IUser[]> {
-    const url = `${this.apiUrl}/users`;
-    return this.httpClient.get<IUser[]>(url);
+    return this.httpClient.get<IUser[]>('/users');
   }
 }
