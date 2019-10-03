@@ -21,20 +21,23 @@
         <i class="fab fa-github"></i>
       </a>
       <p>or</p>
-      <!-- E-mail -->
-      <div class="md-form mt-0">
+      <div class="md-form mt-0 input-group mb-3">
+        <div class="input-group-prepend">
+          <label for="materialRegisterFormEmail" class="input-group-text" style="width: 6em">E-mail</label>
+        </div>
         <input type="email" id="materialRegisterFormEmail" class="form-control" formControlName="email"
                [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
-        <label for="materialRegisterFormEmail">E-mail</label>
         <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
           <div *ngIf="f.username.errors.required">Username is required</div>
         </div>
       </div>
       <!-- Password -->
-      <div class="md-form">
+      <div class="md-form input-group mb-3">
+        <div class="input-group-prepend">
+          <label for="materialRegisterFormPassword" class="input-group-text">Password</label>
+        </div>
         <input type="password" id="materialRegisterFormPassword" class="form-control" formControlName="password"
                [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
-        <label for="materialRegisterFormPassword">Password</label>
         <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
           <div *ngIf="f.password.errors.required">Password is required</div>
         </div>
@@ -45,11 +48,14 @@
         <label class="form-check-label" for="materialRegisterFormNewsletter">Remember me</label>
       </div>
       <!-- Sign up button -->
-      <button [disabled]="loading" class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0"> <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span> Login</button>
+      <button [disabled]="loading" class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0"><span
+        *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span> Login
+      </button>
       Forgot <strong>Email or password</strong>
       <p>Create an account?<a routerLink="/user/register" target="_blank">Sign up</a></p>
     </form>
     <!-- Form -->
-    <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>  </div>
+    <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+  </div>
 </div>
 
