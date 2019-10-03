@@ -9,48 +9,59 @@
   <div class="card-body px-lg-5 pt-0">
 
     <!-- Form -->
-    <form class="text-center" style="color: #757575" (ngSubmit)="createUser(registerForm)" #registerForm="ngForm" >
+    <form class="text-center" style="color: #757575" (ngSubmit)="createUser(registerForm)" #registerForm="ngForm">
 
-      <div class="form-row" style="margin-top: 10px">
+      <div class="form-row" style="margin-top: 1em">
         <div class="col">
           <!-- First name -->
-          <div class="md-form">
+          <div class="md-form input-group mb-3">
+            <div class="input-group-lg">
+              <label for="materialRegisterFormFirstName" class="input-group-text">First name</label>
+            </div>
             <input type="text" id="materialRegisterFormFirstName" class="form-control" ngModel name="firsName">
-            <label for="materialRegisterFormFirstName">First name</label>
           </div>
         </div>
         <div class="col">
           <!-- Last name -->
-          <div class="md-form">
+          <div class="md-form input-group mb-3">
+            <div class="input-group-lg">
+              <label for="materialRegisterFormLastName" class="input-group-text">Last name</label>
+            </div>
             <input type="text" id="materialRegisterFormLastName" class="form-control" ngModel name="lastName">
-            <label for="materialRegisterFormLastName">Last name</label>
           </div>
         </div>
       </div>
 
       <!-- E-mail -->
-      <div class="md-form mt-0">
+      <div class="md-form mt-0 input-group mb-3">
+        <div class="input-group-lg ">
+          <label for="materialRegisterFormEmail" class="input-group-text" style="width: 6em">E-mail</label>
+        </div>
         <input type="email" id="materialRegisterFormEmail" class="form-control" ngModel name="email">
-        <label for="materialRegisterFormEmail">E-mail</label>
       </div>
 
       <!-- Password -->
-      <div class="md-form">
+      <div class="md-form input-group mb-3">
+        <div class="input-group-lg">
+          <label for="materialRegisterFormPassword" class="input-group-text" style="width: 6em">Password</label>
+        </div>
         <input type="password" id="materialRegisterFormPassword" class="form-control" ngModel name="password">
-        <label for="materialRegisterFormPassword">Password</label>
+
       </div>
 
       <!-- Phone number -->
-      <div class="md-form">
+      <div class="md-form input-group mb-3">
+        <div class="input-group-lg">
+          <label for="materialRegisterFormPhone" class="input-group-text" style="width: 6em">Phone</label>
+        </div>
         <input type="number" id="materialRegisterFormPhone" class="form-control" ngModel name="phoneNumber">
-        <label for="materialRegisterFormPhone">Phone number</label>
       </div>
 
-<!--      &lt;!&ndash; Newsletter &ndash;&gt;-->
-<!--      <div class="form-check">-->
-<!--        <input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">-->
-<!--        <label class="form-check-label" for="materialRegisterFormNewsletter">Subscribe to our newsletter</label>-->
-<!--      </div>-->
+      <!--      &lt;!&ndash; Newsletter &ndash;&gt;-->
+      <!--      <div class="form-check">-->
+      <!--        <input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">-->
+      <!--        <label class="form-check-label" for="materialRegisterFormNewsletter">Subscribe to our newsletter</label>-->
+      <!--      </div>-->
 
       <!-- Sign up button -->
       <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0">Sign up</button>
