@@ -6,10 +6,14 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { AlertComponent } from './alert/alert.component';
 
 
 @NgModule({
-  declarations: [RegisterComponent, LoginComponent],
+  declarations: [RegisterComponent, LoginComponent, AlertComponent],
+  exports: [
+    AlertComponent
+  ],
   imports: [
     CommonModule,
     FormLoginRoutingModule,

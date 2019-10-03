@@ -10,6 +10,7 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {JwtInterceptor} from './_helpers/jwt.interceptor';
 import {ErrorInterceptor} from './_helpers/error.interceptor';
 import {fakeBackendProvider} from './_helpers/fake-backend';
+import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {fakeBackendProvider} from './_helpers/fake-backend';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    FormLoginModule
+    FormLoginModule,
+    NgbDropdownModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

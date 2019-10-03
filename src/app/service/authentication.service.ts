@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import {IUser} from './user';
+import {IUser} from '../model/user';
 
 
 @Injectable({ providedIn: 'root' })
@@ -29,10 +29,6 @@ export class AuthenticationService {
         this.currentUserSubject.next(user);
         return user;
       }));
-  }
-
-  register(user: IUser) {
-    return this.http.post<any>('/register', user);
   }
 
   logout() {

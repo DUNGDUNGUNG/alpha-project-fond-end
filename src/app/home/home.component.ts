@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {IUser} from '../form-login/user';
-import {UserService} from '../form-login/user.service';
+import {IUser} from '../model/user';
+import {UserService} from '../service/user.service';
 import {first} from 'rxjs/operators';
 import {Router} from '@angular/router';
-import {AuthenticationService} from '../form-login/authentication.service';
+import {AuthenticationService} from '../service/authentication.service';
 
 @Component({
   selector: 'app-home',
@@ -11,9 +11,7 @@ import {AuthenticationService} from '../form-login/authentication.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
   loading = false;
-  users: IUser[];
   currentUser: IUser;
 
   constructor(private userService: UserService,
@@ -23,9 +21,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.loading = true;
-    this.userService.getList().pipe(first()).subscribe(users => {
+    this.userService.getDetail(this.currentUser.id).pipe(first()).subscribe(users => {
       this.loading = false;
-      this.users = users;
+      this.currentUser = users;
     });
   }
 
@@ -34,5 +32,4 @@ export class HomeComponent implements OnInit {
     this.authenticationService.logout();
     this.router.navigate(['/user/login']);
   }
-
 }
