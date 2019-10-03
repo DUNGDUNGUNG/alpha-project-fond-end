@@ -34,6 +34,11 @@ export class AuthenticationService {
       }));
   }
 
+  register(user: IUser) {
+    const url = this.apiUrl + '/register';
+    return this.http.post<any>(url, user);
+  }
+
   logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('currentUser');

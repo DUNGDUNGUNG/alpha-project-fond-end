@@ -17,14 +17,4 @@ export class UserService {
     const url = `${this.apiUrl}/users`;
     return this.httpClient.get<IUser[]>(url);
   }
-
-  createUser(user: IUser) {
-    const url = this.apiUrl + '/register';
-    return this.httpClient.post(url, user);
-  }
-
-  login(user: IUser) {
-    const url = this.apiUrl + '/login';
-    return this.httpClient.post(url, user);
-  }
 }

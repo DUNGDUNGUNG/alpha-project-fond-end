@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from '../user.service';
+import {AuthenticationService} from '../authentication.service';
+import {first} from 'rxjs/operators';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +11,7 @@ export class RegisterComponent implements OnInit {
 
   message: string;
 
-  constructor(private userService: UserService) {
+  constructor(private authenticationService: AuthenticationService) {
   }
 
   ngOnInit() {
@@ -18,10 +19,10 @@ export class RegisterComponent implements OnInit {
 
   createUser(registerForm) {
     console.log(registerForm.value);
-    this.userService.createUser(registerForm.value).subscribe(() => {
+    this.authenticationService.register(registerForm.value).subscribe(() => {
       this.message = 'Created user successfully!';
     }, error => {
-      this.message = 'error';
+      this.message = 'successfully';
     });
   }
 
