@@ -6,4 +6,5 @@ export interface IUser {
   password: string;
   phoneNumber?: number;
   enabled?: boolean;
+  token?: string;
 }
