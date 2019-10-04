@@ -7,4 +7,5 @@ export interface IUser {
   phoneNumber?: number;
   enabled?: boolean;
   token?: string;
+  avatar?: string|any;
 }
