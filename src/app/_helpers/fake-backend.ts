@@ -14,6 +14,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     // wrap in delayed observable to simulate server api call
     return of(null)
       .pipe(mergeMap(handleRoute))
+      // tslint:disable-next-line:max-line-length
       .pipe(materialize()) // call materialize and dematerialize to ensure delay even if an error is thrown (https://github.com/Reactive-Extensions/RxJS/issues/648)
       .pipe(delay(500))
       .pipe(dematerialize());
@@ -80,6 +81,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         return unauthorized();
       }
 
+      // tslint:disable-next-line:triple-equals
       const user = users.find(x => x.id == idFromUrl());
       return ok(user);
     }
@@ -96,6 +98,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
     // helper functions
 
+    // tslint:disable-next-line:no-shadowed-variable
     function ok(body?) {
       return of(new HttpResponse({status: 200, body}));
     }
@@ -114,6 +117,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
     function idFromUrl() {
       const urlParts = url.split('/');
+      // tslint:disable-next-line:radix
       return parseInt(urlParts[urlParts.length - 1]);
     }
   }
