@@ -1,14 +1,11 @@
-<div class="card">
-
-  <h5 class="card-header white-text text-center py-4 bg-light">
+<div class="card" style="width: 50%; margin-left: 40%">
+  <h5 class="card-header white-text text-center py-4 bg-info">
     <strong>Sign in</strong>
   </h5>
-
   <!--Card content-->
   <div class="card-body px-lg-5 pt-0">
-
     <!-- Form -->
-    <form class="text-center" style="color: #757575" (ngSubmit)="loginUser(loginForm)" #loginForm="ngForm">
+    <form class="text-center" style="color: #757575" [formGroup]="loginForm" (ngSubmit)="loginUser()">
       <hr>
       <p> with:</p>
       <a type="button" class="btn-floating btn-fb btn-sm">
@@ -23,35 +20,42 @@
       <a type="button" class="btn-floating btn-git btn-sm">
         <i class="fab fa-github"></i>
       </a>
-
-
       <p>or</p>
-
-
-      <!-- E-mail -->
-      <div class="md-form mt-0">
-        <input type="email" id="materialRegisterFormEmail" class="form-control" ngModel name="email">
-        <label for="materialRegisterFormEmail">E-mail</label>
+      <div class="md-form mt-0 input-group mb-3">
+        <div class="input-group-prepend">
+          <label for="materialRegisterFormEmail" class="input-group-text" style="width: 6em">E-mail</label>
+        </div>
+        <input type="email" id="materialRegisterFormEmail" class="form-control" formControlName="email"
+               [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.username.errors.required">Username is required</div>
+        </div>
       </div>
-
       <!-- Password -->
-      <div class="md-form">
-        <input type="password" id="materialRegisterFormPassword" class="form-control" ngModel name="password">
-        <label for="materialRegisterFormPassword">Password</label>
+      <div class="md-form input-group mb-3">
+        <div class="input-group-prepend">
+          <label for="materialRegisterFormPassword" class="input-group-text">Password</label>
+        </div>
+        <input type="password" id="materialRegisterFormPassword" class="form-control" formControlName="password"
+               [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">Password is required</div>
+        </div>
       </div>
       <hr>
-
       <div class="form-check">
         <input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">
         <label class="form-check-label" for="materialRegisterFormNewsletter">Remember me</label>
       </div>
-
       <!-- Sign up button -->
-      <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0">Login</button>
+      <button [disabled]="loading" class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0"><span
+        *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span> Login
+      </button>
       Forgot <strong>Email or password</strong>
       <p>Create an account?<a routerLink="/user/register" target="_blank">Sign up</a></p>
     </form>
     <!-- Form -->
-    <div *ngIf="message" style="color: red">{{message}}</div>
+    <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
   </div>
 </div>
+
