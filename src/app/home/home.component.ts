@@ -22,10 +22,16 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.loading = true;
-    this.userService.getDetail(this.currentUser.id).pipe(first()).subscribe(users => {
-      this.loading = false;
-      this.currentUser = users;
-    });
+    this.isLoggedIn();
+  }
+
+  isLoggedIn() {
+    if (this.currentUser != null) {
+      this.userService.getDetail(this.currentUser.id).pipe(first()).subscribe(users => {
+        this.loading = false;
+        this.currentUser = users;
+      });
+    }
   }
 
 
@@ -34,7 +40,16 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/user/login']);
   }
 
+  signUp() {
+    this.router.navigate(['/user/register']);
+  }
+
+  login() {
+    this.router.navigate(['/user/login']);
+  }
+
   profile() {
     this.router.navigate(['/user/profile']);
   }
+
 }

@@ -6,7 +6,7 @@ import {UserService} from '../../service/user.service';
 import {AlertService} from '../../service/alert.service';
 import {AuthenticationService} from '../../service/authentication.service';
 
-const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
+const URL = 'https://alpha-project-fond-end.firebaseio.com';
 
 @Component({
   selector: 'app-profile',

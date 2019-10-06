@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {AuthenticationService} from '../../service/authentication.service';
 import {first} from 'rxjs/operators';
 import {AlertService} from '../../service/alert.service';
+import {AuthService} from '../../service/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private userService: UserService,
+    public authService: AuthService,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
@@ -44,7 +46,9 @@ export class LoginComponent implements OnInit {
   }
 
   // convenience getter for easy access to form fields
-  get f() { return this.loginForm.controls; }
+  get f() {
+    return this.loginForm.controls;
+  }
 
   loginUser() {
 
@@ -68,4 +72,28 @@ export class LoginComponent implements OnInit {
         });
   }
 
+  loginGoogle() {
+    this.authService.loginWithGoogle().then((data) => {
+      this.router.navigate(['']);
+    });
+  }
+
+  loginFacebook() {
+    this.authService.loginWithFacebook().then((data) => {
+      this.router.navigate(['']);
+    });
+  }
+
+  loginTwitter() {
+    this.authService.loginWithTwitter().then((data) => {
+      this.router.navigate(['']);
+    });
+  }
+
+  loginGitHub() {
+    this.authService.loginWithGitHub().then((data) => {
+      this.router.navigate(['']);
+    });
+
+  }
 }
