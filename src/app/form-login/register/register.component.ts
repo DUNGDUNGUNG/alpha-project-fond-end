@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 import {UserService} from '../../service/user.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
@@ -22,8 +22,7 @@ export class RegisterComponent implements OnInit {
               private router: Router,
               private authenticationService: AuthenticationService,
               private userService: UserService,
-              private alertService: AlertService)
-  {
+              private alertService: AlertService) {
     // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/']);
@@ -40,8 +39,11 @@ export class RegisterComponent implements OnInit {
     });
 
   }
+
   // convenience getter for easy access to form fields
-  get f() { return this.registerForm.controls; }
+  get f() {
+    return this.registerForm.controls;
+  }
 
 
   createUser() {
