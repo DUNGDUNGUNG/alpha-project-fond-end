@@ -96,6 +96,22 @@ export class FakeBackendInterceptor implements HttpInterceptor {
       return ok();
     }
 
+    function updateInfo() {
+      let info = getUserInfo();
+      if (info.email === null || info.password === null) {
+        return Observable.throw('Please fill all fields');
+      } else {
+        return Observable.create(observer => {
+          observer.next(true);
+          observer.complete();
+        });
+      }
+    }
+
+    function getUserInfo(): IUser {
+      return this.currentUser;
+    }
+
     // helper functions
 
     // tslint:disable-next-line:no-shadowed-variable

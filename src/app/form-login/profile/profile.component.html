@@ -1,0 +1,64 @@
+<div class="create-page">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Profile</li>
+    </ol>
+  </nav>
+  <div class="page-content">
+    <div class="row">
+      <div class="col col-md-4" *ngIf="!currentUser.avatar">
+        <img class="img-avatar" src="../../../assets/images/profile_placeholder.png" alt="">
+        <button type="file" class="change-img-button">Change Image</button>
+      </div>
+      <div class="col col-md-4" *ngIf="currentUser.avatar">
+        <img class="img-avatar" src="{{currentUser.avatar}}" alt="">
+        <input type="file" class="change-img-button" value="Change Image" multiple>
+      </div>
+
+      <div class="col col-md-8">
+
+        <form class="create-form" novalidate>
+
+          <div class="form-group">
+            <div class="input-style">
+              <input placeholder="FirstName" value="{{currentUser.firstName}}" type="text" class="form-control">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="input-style">
+              <input placeholder="LastName" value="{{currentUser.lastName}}" type="text" class="form-control">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="input-style">
+              <input placeholder="PhoneNumber" value="{{currentUser.phoneNumber}}" type="number" class="form-control">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="input-style">
+              <input type="email" placeholder="Email" value="{{currentUser.email}}" class="form-control">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="input-style">
+              <input  type="number" min="0" max="100" placeholder="Age" class="form-control">
+            </div>
+          </div>
+
+          <div class="row submit-button-container">
+            <div class="col-md-2">
+              <button class="btn-warning">Cancel</button>
+            </div>
+            <div class="col-md-2">
+              <button class="btn-info">Update</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

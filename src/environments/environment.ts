@@ -4,7 +4,15 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8080'
+  apiUrl: 'http://localhost:8080',
+  firebase: {
+    apiKey: 'AIzaSyDSJP72a55Io2IOkIkf3celNeO_H-lpqVw',
+    authDomain: 'alpha-project-fond-end.firebaseapp.com',
+    databaseURL: 'https://alpha-project-fond-end.firebaseio.com',
+    projectId: 'alpha-project-fond-end',
+    storageBucket: '',
+    messagingSenderId: '891431111668'
+  }
 };
 
 /*
